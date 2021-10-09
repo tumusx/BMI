@@ -6,46 +6,33 @@ import android.icu.number.IntegerWidth
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.w("lifecycle","Estou criando a tela")
-    }
+    val n1 = findViewById(R.id.peso) as EditText
+    val n2 = findViewById(R.id.altura) as EditText
+    val total = findViewById(R.id.resultado)as TextView
+    val cal1 = findViewById(R.id.calcuBot) as Button
 
-    override fun onStart() {
-        super.onStart()
-        Log.w("Lifecycle", "tela esta visivel")
-    }
+     cal1.setOnClickListener {
+         val val1 = n1.text.toString().toFloat()
+         val val2 = n2.text.toString().toFloat()
 
-    override fun onResume() {
-        super.onResume()
-        Log.w("Lifecycle", "Interagir com a tela")
-    }
 
-    override fun onPause() {
-        super.onPause()
-        Log.w("Lifecycle", "Agora voce nao pode Interagir")
-    }
+         val resultado = val1/(val2*val2).toFloat()
+         total.setText(resultado.toString())
 
-    override fun onStop() {
-        super.onStop()
-        Log.w("Lifecycle", "Agora voce parou a aplicacao e a tela nao está mais visivel")
+
+     }
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.w("Lifecycle", "Sua tela foi destruída")
-    }
 
-    override fun onRestart() {
-        super.onRestart()
-        Log.w("Lifecycle", "Sua tela foi restardada com sucesso")
-    }
-
-
-    }
+}
 
