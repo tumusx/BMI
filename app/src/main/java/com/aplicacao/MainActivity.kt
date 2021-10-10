@@ -25,8 +25,16 @@ class MainActivity : AppCompatActivity() {
          val val2 = n2.text.toString().toFloat()
 
 
-         val resultado = val1/(val2*val2).toFloat()
+         var resultado = val1/(val2*val2)
          total.setText(resultado.toString())
+         if (resultado>15){
+             total.setText("Seu IMC é de: $resultado")
+             total.setTextColor(Color.RED)
+         }
+         else{
+             total.setText("Voce está magro demais. S eu imc é $resultado")
+             total.setTextColor(Color.RED)
+         }
 
 
      }
@@ -35,4 +43,5 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+
 
